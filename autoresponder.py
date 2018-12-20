@@ -23,6 +23,8 @@ def run():
         try:
             for msg in voice.sms().messages:
                 if not msg.isRead:
+                    # log to the console
+                    print("{} >> {}".format(time.strftime('%x %X'), msg.phoneNumber))
                     # reply
                     voice.send_sms(msg.phoneNumber, response_message)
                     msg.mark(1)
