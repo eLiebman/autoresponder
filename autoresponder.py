@@ -4,6 +4,8 @@ from googlevoice import Voice
 def login(voice):
     try:
         voice.login()
+    except KeyboardInterrupt:
+        raise
     except:
         print("Login failed, try again \n")
         login(voice)
@@ -25,6 +27,8 @@ def run():
                     voice.send_sms(msg.phoneNumber, response_message)
                     msg.mark(1)
             time.sleep(delay_time)
+        except KeyboardInterrupt:
+            raise
         except:
             continue
 
