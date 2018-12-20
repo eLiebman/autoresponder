@@ -5,6 +5,7 @@ def login(voice):
     try:
         voice.login()
     except:
+        print("Login failed, try again \n")
         login(voice)
 
 def run():
