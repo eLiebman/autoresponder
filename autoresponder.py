@@ -6,8 +6,8 @@ def login(voice):
         voice.login()
     except KeyboardInterrupt:
         raise
-    except:
-        print("Login failed, try again \n")
+    except Exception as error:
+        print(error, "Login failed, try again \n")
         login(voice)
 
 def run():
