@@ -1,4 +1,5 @@
 import time
+import sys
 from googlevoice import Voice
 
 def login(voice):
@@ -28,10 +29,11 @@ def run():
                     # reply
                     voice.send_sms(msg.phoneNumber, response_message)
                     msg.mark(1)
-            time.sleep(delay_time)
         except KeyboardInterrupt:
             raise
         except:
-            continue
+            print("Unexpected error:", sys.exc_info()[0])
+
+        time.sleep(delay_time)
 
 __name__ == '__main__' and run()
